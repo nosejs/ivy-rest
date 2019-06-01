@@ -1,10 +1,10 @@
 {
   "name": "ngx-restangular",
-  "version": "4.0.1",
+  "version": "8.0.1",
   "description": "ngx-restangular",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2muchcoffeecom/ngx-restangular.git"
+    "url": "git+https://github.com/nosejs/ngx-restangular.git"
   },
   "keywords": [
     "ng2-rest",
@@ -32,16 +32,16 @@
     "angular 6 rest",
     "angular 7 rest"
   ],
-  "author": "logvinoleg89 <logvinoleg89@gmail.com>",
+  "author": "bandcap <bandcap@d3f.pw>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/2muchcoffeecom/ngx-restangular/issues"
+    "url": "https://github.com/nosejs/ngx-restangular/issues"
   },
-  "homepage": "https://github.com/2muchcoffeecom/ngx-restangular#readme",
+  "homepage": "https://github.com/nosejs/ngx-restangular#readme",
   "peerDependencies": {
-    "@angular/core": "^7.0",
-    "@angular/common": "^7.0",
-    "@angular/platform-browser": "^7.0",
+    "@angular/core": "^8.0",
+    "@angular/common": "^8.0",
+    "@angular/platform-browser": "^8.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0"
   },

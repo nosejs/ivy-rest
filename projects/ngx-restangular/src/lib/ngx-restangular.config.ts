@@ -2,7 +2,6 @@ import { InjectionToken } from '@angular/core';
 
 import { isArray } from 'lodash';
 
-
 export const RESTANGULAR = new InjectionToken<string>('restangularWithConfig');
 
 export function RestangularFactory([callbackOrServices, callback]) {
@@ -14,5 +13,5 @@ export function RestangularFactory([callbackOrServices, callback]) {
     fn = callback;
   }
 
-  return {fn, arrServices};
+  return { fn, arrServices };
 }

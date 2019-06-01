@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpBackend, HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpBackend, HttpErrorResponse, HttpRequest, HttpResponse, HttpEvent } from '@angular/common/http';
 
 import { throwError, Observable } from 'rxjs';
 
 import { RestangularHelper } from './ngx-restangular-helper';
 import { catchError, filter, map } from 'rxjs/operators';
-import { HttpEvent } from '@angular/common/http/src/response';
 
 @Injectable()
 export class RestangularHttp {
-
-  constructor(public http: HttpBackend) {
-  }
+  constructor(public http: HttpBackend) {}
 
   createRequest(options): Observable<HttpEvent<any>> {
     const request = RestangularHelper.createRequest(options);
@@ -20,8 +17,7 @@ export class RestangularHttp {
   }
 
   request(request: HttpRequest<any>): Observable<HttpEvent<any>> {
-    return this.http.handle(request)
-    .pipe(
+    return this.http.handle(request).pipe(
       filter(event => event instanceof HttpResponse),
       map((response: any) => {
         if (!response.ok) {
@@ -30,7 +26,7 @@ export class RestangularHttp {
         return response;
       }),
       map(response => {
-        response.config = {params: request};
+        response.config = { params: request };
         return response;
       }),
       catchError(err => {
@@ -45,4 +41,3 @@ export class RestangularHttp {
     );
   }
 }
-

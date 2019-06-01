@@ -11,11 +11,9 @@ export const CONFIG_OBJ = new InjectionToken<string>('configObj');
   providers: [RestangularHttp, Restangular]
 })
 export class RestangularModule {
-
   constructor(@Optional() @SkipSelf() parentModule: RestangularModule) {
     if (parentModule) {
-      throw new Error(
-        'RestangularModule is already loaded. Import it in the AppModule only');
+      throw new Error('RestangularModule is already loaded. Import it in the AppModule only');
     }
   }
 
@@ -25,10 +23,9 @@ export class RestangularModule {
     return {
       ngModule: RestangularModule,
       providers: [
-        {provide: CONFIG_OBJ, useValue: [config1, config2]},
-        {provide: RESTANGULAR, useFactory: RestangularFactory, deps: [CONFIG_OBJ]},
+        { provide: CONFIG_OBJ, useValue: [config1, config2] },
+        { provide: RESTANGULAR, useFactory: RestangularFactory, deps: [CONFIG_OBJ] }
       ]
     };
   }
-
 }
