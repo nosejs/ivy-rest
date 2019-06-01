@@ -6,7 +6,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2muchcoffeecom/ngx-restangular.git"
+    "url": "git+https://github.com/nosejs/ngx-restangular.git"
   },
   "keywords": [
     "ng2-rest",
@@ -34,12 +34,12 @@
     "angular 6 rest",
     "angular 7 rest"
   ],
-  "author": "logvinoleg89 <logvinoleg89@gmail.com>",
+  "author": "bandcap <bandcap@d3f.pw>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/2muchcoffeecom/ngx-restangular/issues"
+    "url": "https://github.com/nosejs/ngx-restangular/issues"
   },
-  "homepage": "https://github.com/2muchcoffeecom/ngx-restangular#readme",
+  "homepage": "https://github.com/nosejs/ngx-restangular#readme",
   "devDependencies": {
     "@angular-devkit/build-ng-packagr": "~0.800.1",
     "@angular-devkit/build-angular": "~0.800.1",
@@ -53,7 +53,7 @@
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
     "@types/core-js": ">=0.9.34",
-    "@types/jasmine": ">=2.5.37",
+    "@types/jasmine": "3.3.13",
     "codelyzer": "^5.0.1",
     "ng-packagr": "^5.2.0",
     "rxjs": "^6.5.2",
