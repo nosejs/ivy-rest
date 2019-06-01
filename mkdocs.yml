@@ -1,4 +1,7 @@
 site_name: Ngx-restangular Docs
+site_url: https://nosejs.github.io/ngx-restangular/
+repo_url: https://github.com/nosejs/ngx-restangular
+edit_uri: https://github.com/nosejs/ngx-restangular.git
 
 theme:
   name: material
