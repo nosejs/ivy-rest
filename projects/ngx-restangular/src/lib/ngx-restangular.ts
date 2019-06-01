@@ -1,5 +1,5 @@
 import { Injectable, Inject, Injector, Optional, Type } from '@angular/core';
-import { assign } from 'core-js/fn/object';
+import { assign } from 'core-js/features/object';
 import {
   map,
   bind,
@@ -32,44 +32,44 @@ import { RestangularConfigurer } from './ngx-restangular-config.factory';
 @Injectable()
 export class Restangular {
   provider: {
-    setBaseUrl: any,
-    setDefaultHeaders: any,
-    configuration: any,
-    setSelfLinkAbsoluteUrl: any,
-    setExtraFields: any,
-    setDefaultHttpFields: any,
-    setPlainByDefault: any,
-    setEncodeIds: any,
-    setDefaultRequestParams: any,
-    requestParams: any,
-    defaultHeaders: any,
-    setDefaultResponseMethod: any,
-    defaultResponseMethod: any,
-    setMethodOverriders: any,
-    setJsonp: any,
-    setUrlCreator: any,
-    setRestangularFields: any,
-    setUseCannonicalId: any,
-    addResponseInterceptor: any,
-    addErrorInterceptor: any,
-    setResponseInterceptor: any,
-    setResponseExtractor: any,
-    setErrorInterceptor: any,
-    addRequestInterceptor: any,
-    setRequestInterceptor: any,
-    setFullRequestInterceptor: any,
-    addFullRequestInterceptor: any,
-    setOnBeforeElemRestangularized: any,
-    setRestangularizePromiseInterceptor: any,
-    setOnElemRestangularized: any,
-    setParentless: any,
-    setRequestSuffix: any,
-    addElementTransformer: any,
-    extendCollection: any,
-    extendModel: any,
-    setTransformOnlyServerElements: any,
-    setFullResponse: any,
-    $get: any
+    setBaseUrl: any;
+    setDefaultHeaders: any;
+    configuration: any;
+    setSelfLinkAbsoluteUrl: any;
+    setExtraFields: any;
+    setDefaultHttpFields: any;
+    setPlainByDefault: any;
+    setEncodeIds: any;
+    setDefaultRequestParams: any;
+    requestParams: any;
+    defaultHeaders: any;
+    setDefaultResponseMethod: any;
+    defaultResponseMethod: any;
+    setMethodOverriders: any;
+    setJsonp: any;
+    setUrlCreator: any;
+    setRestangularFields: any;
+    setUseCannonicalId: any;
+    addResponseInterceptor: any;
+    addErrorInterceptor: any;
+    setResponseInterceptor: any;
+    setResponseExtractor: any;
+    setErrorInterceptor: any;
+    addRequestInterceptor: any;
+    setRequestInterceptor: any;
+    setFullRequestInterceptor: any;
+    addFullRequestInterceptor: any;
+    setOnBeforeElemRestangularized: any;
+    setRestangularizePromiseInterceptor: any;
+    setOnElemRestangularized: any;
+    setParentless: any;
+    setRequestSuffix: any;
+    addElementTransformer: any;
+    extendCollection: any;
+    extendModel: any;
+    setTransformOnlyServerElements: any;
+    setFullResponse: any;
+    $get: any;
   };
   addElementTransformer: any;
   extendCollection: any;
@@ -163,7 +163,6 @@ function providerConfig($http) {
   this.$get = $get;
 
   function $get() {
-
     function createServiceForConfiguration(config) {
       const service: any = {};
 
@@ -272,9 +271,11 @@ function providerConfig($http) {
 
         // Trigger the full response interceptor.
         if (config.fullResponse) {
-          subject.next(extend(response, {
-            data: data
-          }));
+          subject.next(
+            extend(response, {
+              data: data
+            })
+          );
         } else {
           subject.next(data);
         }
@@ -286,7 +287,7 @@ function providerConfig($http) {
       function stripRestangular(elem) {
         if (isArray(elem)) {
           const array = [];
-          each(elem, function (value) {
+          each(elem, function(value) {
             array.push(config.isRestangularized(value) ? stripRestangular(value) : value);
           });
           return array;
@@ -297,15 +298,15 @@ function providerConfig($http) {
 
       function addCustomOperation(elem) {
         elem[config.restangularFields.customOperation] = bind(customFunction, elem);
-        const requestMethods = {get: customFunction, delete: customFunction};
-        each(['put', 'patch', 'post'], function (name) {
-          requestMethods[name] = function (operation, element, path, params, headers) {
+        const requestMethods = { get: customFunction, delete: customFunction };
+        each(['put', 'patch', 'post'], function(name) {
+          requestMethods[name] = function(operation, element, path, params, headers) {
             return bind(customFunction, this)(operation, path, params, headers, element);
           };
         });
-        each(requestMethods, function (requestFunc, name) {
+        each(requestMethods, function(requestFunc, name) {
           const callOperation = name === 'delete' ? 'remove' : name;
-          each(['do', 'custom'], function (alias) {
+          each(['do', 'custom'], function(alias) {
             elem[alias + name.toUpperCase()] = bind(requestFunc, elem, callOperation);
           });
         });
@@ -315,8 +316,12 @@ function providerConfig($http) {
 
       function copyRestangularizedElement(fromElement, toElement = {}) {
         const copiedElement = assign(toElement, fromElement);
-        return restangularizeElem(copiedElement[config.restangularFields.parentResource],
-          copiedElement, copiedElement[config.restangularFields.route], true);
+        return restangularizeElem(
+          copiedElement[config.restangularFields.parentResource],
+          copiedElement,
+          copiedElement[config.restangularFields.route],
+          true
+        );
       }
 
       function restangularizeElem(parent, element, route, fromServer?, collection?, reqParams?) {
@@ -329,7 +334,7 @@ function providerConfig($http) {
         }
 
         if (collection) {
-          localElem[config.restangularFields.getParentList] = function () {
+          localElem[config.restangularFields.getParentList] = function() {
             return collection;
           };
         }
@@ -371,7 +376,7 @@ function providerConfig($http) {
 
       function restangularizeCollectionAndElements(parent, element, route) {
         const collection = restangularizeCollection(parent, element, route, false);
-        each(collection, function (elem) {
+        each(collection, function(elem) {
           if (elem) {
             restangularizeElem(parent, elem, route, false);
           }
@@ -390,17 +395,20 @@ function providerConfig($http) {
         let filledArray = [];
         filledArray = config.transformElem(filledArray, true, elemToPut[config.restangularFields.route], service);
 
-        elemToPut.put(params, headers)
-        .subscribe(function (serverElem) {
-          const newArray = copyRestangularizedElement(__this);
-          newArray[idx] = serverElem;
-          filledArray = newArray;
-          subject.next(newArray);
-        }, function (response) {
-          subject.error(response);
-        }, function () {
-          subject.complete();
-        });
+        elemToPut.put(params, headers).subscribe(
+          function(serverElem) {
+            const newArray = copyRestangularizedElement(__this);
+            newArray[idx] = serverElem;
+            filledArray = newArray;
+            subject.next(newArray);
+          },
+          function(response) {
+            subject.error(response);
+          },
+          function() {
+            subject.complete();
+          }
+        );
 
         return restangularizeResponse(subject, true, filledArray);
       }
@@ -421,8 +429,15 @@ function providerConfig($http) {
         const url = urlHandler.fetchUrl(this, what);
         const whatFetched = what || __this[config.restangularFields.route];
 
-        const request = config.fullRequestInterceptor(null, operation,
-          whatFetched, url, headers || {}, reqParams || {}, this[config.restangularFields.httpConfig] || {});
+        const request = config.fullRequestInterceptor(
+          null,
+          operation,
+          whatFetched,
+          url,
+          headers || {},
+          reqParams || {},
+          this[config.restangularFields.httpConfig] || {}
+        );
 
         let filledArray = [];
         filledArray = config.transformElem(filledArray, true, whatFetched, service);
@@ -433,7 +448,7 @@ function providerConfig($http) {
           method = 'jsonp';
         }
 
-        const okCallback = function (response) {
+        const okCallback = function(response) {
           const resData = response.body;
           const fullParams = response.config.params;
           let data = parseResponse(resData, operation, whatFetched, url, response, subject);
@@ -450,12 +465,17 @@ function providerConfig($http) {
             return resolvePromise(subject, response, data, filledArray);
           }
 
-          let processedData = map(data, function (elem) {
+          let processedData = map(data, function(elem) {
             if (!__this[config.restangularFields.restangularCollection]) {
               return restangularizeElem(__this, elem, what, true, data);
             } else {
-              return restangularizeElem(__this[config.restangularFields.parentResource],
-                elem, __this[config.restangularFields.route], true, data);
+              return restangularizeElem(
+                __this[config.restangularFields.parentResource],
+                elem,
+                __this[config.restangularFields.route],
+                true,
+                data
+              );
             }
           });
 
@@ -465,13 +485,7 @@ function providerConfig($http) {
             resolvePromise(
               subject,
               response,
-              restangularizeCollection(
-                __this,
-                processedData,
-                what,
-                true,
-                fullParams
-              ),
+              restangularizeCollection(__this, processedData, what, true, fullParams),
               filledArray
             );
           } else {
@@ -490,19 +504,30 @@ function providerConfig($http) {
           }
         };
 
-        urlHandler.resource(this, $http, request.httpConfig, request.headers, request.params, what,
-          this[config.restangularFields.etag], operation)[method]()
-        .subscribe(okCallback, function error(response) {
-          if (response.status === 304 && __this[config.restangularFields.restangularCollection]) {
-            resolvePromise(subject, response, __this, filledArray);
-          } else if (every(config.errorInterceptors, function (cb: any) {
-
-            return cb(response, subject, okCallback) !== false;
-          })) {
-            // triggered if no callback returns false
-            subject.error(response);
-          }
-        });
+        urlHandler
+          .resource(
+            this,
+            $http,
+            request.httpConfig,
+            request.headers,
+            request.params,
+            what,
+            this[config.restangularFields.etag],
+            operation
+          )
+          [method]()
+          .subscribe(okCallback, function error(response) {
+            if (response.status === 304 && __this[config.restangularFields.restangularCollection]) {
+              resolvePromise(subject, response, __this, filledArray);
+            } else if (
+              every(config.errorInterceptors, function(cb: any) {
+                return cb(response, subject, okCallback) !== false;
+              })
+            ) {
+              // triggered if no callback returns false
+              subject.error(response);
+            }
+          });
 
         return restangularizeResponse(subject, true, filledArray);
       }
@@ -529,7 +554,8 @@ function providerConfig($http) {
 
         let callObj = obj || this;
         // fallback to etag on restangular object (since for custom methods we probably don't explicitly specify the etag field)
-        const etag = callObj[config.restangularFields.etag] || (operation !== 'post' ? this[config.restangularFields.etag] : null);
+        const etag =
+          callObj[config.restangularFields.etag] || (operation !== 'post' ? this[config.restangularFields.etag] : null);
 
         if (isObject(callObj) && config.isRestangularized(callObj)) {
           callObj = stripRestangular(callObj);
@@ -547,7 +573,7 @@ function providerConfig($http) {
         let filledObject = {};
         filledObject = config.transformElem(filledObject, false, route, service);
 
-        const okCallback = function (response) {
+        const okCallback = function(response) {
           const resData = get(response, 'body');
           const fullParams = get(response, 'config.params');
 
@@ -582,18 +608,19 @@ function providerConfig($http) {
               data[config.restangularFields.singleOne] = __this[config.restangularFields.singleOne];
               resolvePromise(subject, response, data, filledObject);
             }
-
           } else {
             resolvePromise(subject, response, undefined, filledObject);
           }
         };
 
-        const errorCallback = function (response) {
+        const errorCallback = function(response) {
           if (response.status === 304 && config.isSafe(operation)) {
             resolvePromise(subject, response, __this, filledObject);
-          } else if (every(config.errorInterceptors, function (cb: any) {
-            return cb(response, subject, okCallback) !== false;
-          })) {
+          } else if (
+            every(config.errorInterceptors, function(cb: any) {
+              return cb(response, subject, okCallback) !== false;
+            })
+          ) {
             // triggered if no callback returns false
             subject.error(response);
           }
@@ -604,22 +631,30 @@ function providerConfig($http) {
         const isOverrideOperation = config.isOverridenMethod(operation);
         if (isOverrideOperation) {
           callOperation = 'post';
-          callHeaders = extend(callHeaders, {'X-HTTP-Method-Override': operation === 'remove' ? 'DELETE' : operation.toUpperCase()});
+          callHeaders = extend(callHeaders, {
+            'X-HTTP-Method-Override': operation === 'remove' ? 'DELETE' : operation.toUpperCase()
+          });
         } else if (config.jsonp && callOperation === 'get') {
           callOperation = 'jsonp';
         }
 
         if (config.isSafe(operation)) {
           if (isOverrideOperation) {
-            urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-              what, etag, callOperation)[callOperation]({}).subscribe(okCallback, errorCallback);
+            urlHandler
+              .resource(this, $http, request.httpConfig, callHeaders, request.params, what, etag, callOperation)
+              [callOperation]({})
+              .subscribe(okCallback, errorCallback);
           } else {
-            urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-              what, etag, callOperation)[callOperation]().subscribe(okCallback, errorCallback);
+            urlHandler
+              .resource(this, $http, request.httpConfig, callHeaders, request.params, what, etag, callOperation)
+              [callOperation]()
+              .subscribe(okCallback, errorCallback);
           }
         } else {
-          urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-            what, etag, callOperation)[callOperation](request.element).subscribe(okCallback, errorCallback);
+          urlHandler
+            .resource(this, $http, request.httpConfig, callHeaders, request.params, what, etag, callOperation)
+            [callOperation](request.element)
+            .subscribe(okCallback, errorCallback);
         }
 
         return restangularizeResponse(subject, false, filledObject);
@@ -669,23 +704,26 @@ function providerConfig($http) {
           bindedFunction = bind(customFunction, this, operation, path);
         }
 
-        const createdFunction = function (params, headers, elem) {
-          const callParams = defaults({
-            params: params,
-            headers: headers,
-            elem: elem
-          }, {
-            params: defaultParams,
-            headers: defaultHeaders,
-            elem: defaultElem
-          });
+        const createdFunction = function(params, headers, elem) {
+          const callParams = defaults(
+            {
+              params: params,
+              headers: headers,
+              elem: elem
+            },
+            {
+              params: defaultParams,
+              headers: defaultHeaders,
+              elem: defaultElem
+            }
+          );
           return bindedFunction(callParams.params, callParams.headers, callParams.elem);
         };
 
         if (config.isSafe(operation)) {
           this[name] = createdFunction;
         } else {
-          this[name] = function (elem, params, headers) {
+          this[name] = function(elem, params, headers) {
             return createdFunction(params, headers, elem);
           };
         }
@@ -702,7 +740,7 @@ function providerConfig($http) {
         const knownCollectionMethods = values(config.restangularFields);
         const serv: any = {};
         const collection = (parent || service).all(route);
-        serv.one = bind(one, (parent || service), parent, route);
+        serv.one = bind(one, parent || service, parent, route);
         serv.all = bind(collection.all, collection);
         serv.post = bind(collection.post, collection);
         serv.getList = bind(collection.getList, collection);
@@ -710,7 +748,11 @@ function providerConfig($http) {
         serv.get = bind(collection.get, collection);
 
         for (const prop in collection) {
-          if (collection.hasOwnProperty(prop) && isFunction(collection[prop]) && !includes(knownCollectionMethods, prop)) {
+          if (
+            collection.hasOwnProperty(prop) &&
+            isFunction(collection[prop]) &&
+            !includes(knownCollectionMethods, prop)
+          ) {
             serv[prop] = bind(collection[prop], collection);
           }
         }
@@ -747,5 +789,4 @@ function providerConfig($http) {
 
     return createServiceForConfiguration(globalConfiguration);
   }
-
 }

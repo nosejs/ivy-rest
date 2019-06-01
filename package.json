@@ -9,30 +9,8 @@
     "url": "git+https://github.com/nosejs/ngx-restangular.git"
   },
   "keywords": [
-    "ng2-rest",
-    "ng2-restangular",
     "ngx-restangular",
-    "angular2-restangular",
-    "angular4-restangular",
-    "angular5-restangular",
-    "angular6-restangular",
-    "angular7-restangular",
-    "angular2-rest",
-    "angular4-rest",
-    "angular5-rest",
-    "angular6-rest",
-    "angular7-rest",
-    "restangular",
-    "angular 2 restangular",
-    "angular 4 restangular",
-    "angular 5 restangular",
-    "angular 6 restangular",
-    "angular 7 restangular",
-    "angular 2 rest",
-    "angular 4 rest",
-    "angular 5 rest",
-    "angular 6 rest",
-    "angular 7 rest"
+    "angular 8 rest"
   ],
   "author": "bandcap <bandcap@d3f.pw>",
   "license": "MIT",
@@ -41,8 +19,8 @@
   },
   "homepage": "https://github.com/nosejs/ngx-restangular#readme",
   "devDependencies": {
-    "@angular-devkit/build-ng-packagr": "~0.800.1",
     "@angular-devkit/build-angular": "~0.800.1",
+    "@angular-devkit/build-ng-packagr": "~0.800.1",
     "@angular/cli": "^8.0.1",
     "@angular/common": "^8.0.0",
     "@angular/compiler": "^8.0.0",
@@ -57,12 +35,13 @@
     "codelyzer": "^5.0.1",
     "ng-packagr": "^5.2.0",
     "rxjs": "^6.5.2",
-    "tsickle": "^0.33.1",
+    "tsickle": "^0.35.0",
     "tslint": "^5.17.0",
-    "typescript": "~3.5.1",
+    "typescript": "^3.4.5",
     "zone.js": "~0.9.1"
   },
   "dependencies": {
+    "core-js": "^3.1.3",
     "node-sass": "^4.12.0"
   }
 }
