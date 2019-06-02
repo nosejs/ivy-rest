@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf, InjectionToken } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RESTANGULAR, RestangularFactory } from './ngx-restangular.config';
-import { Restangular } from './ngx-restangular';
-import { RestangularHttp } from './ngx-restangular-http';
+import { RESTANGULAR, RestangularFactory } from './ivy-rest.config';
+import { Restangular } from './ivy-rest';
+import { RestangularHttp } from './ivy-rest-http';
 
 export const CONFIG_OBJ = new InjectionToken<string>('configObj');
 

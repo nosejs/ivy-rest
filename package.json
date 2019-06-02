@@ -1,24 +1,24 @@
 {
-  "name": "ngx-restangular",
+  "name": "ivy-rest",
   "version": "8.0.1",
   "scripts": {
     "start": "ng serve",
-    "build:ngx-restangular": "ng build ngx-restangular"
+    "build:ivy-rest": "ng build ivy-rest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nosejs/ngx-restangular.git"
+    "url": "git+https://github.com/nosejs/ivy-rest.git"
   },
   "keywords": [
-    "ngx-restangular",
+    "ivy-rest",
     "angular 8 rest"
   ],
   "author": "bandcap <bandcap@d3f.pw>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nosejs/ngx-restangular/issues"
+    "url": "https://github.com/nosejs/ivy-rest/issues"
   },
-  "homepage": "https://github.com/nosejs/ngx-restangular#readme",
+  "homepage": "https://github.com/nosejs/ivy-rest#readme",
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.1",
     "@angular-devkit/build-ng-packagr": "~0.800.1",
@@ -34,6 +34,7 @@
     "@types/core-js": ">=0.9.34",
     "@types/jasmine": "3.3.13",
     "codelyzer": "^5.0.1",
+    "eslint": "^5.16.0",
     "ng-packagr": "^5.2.0",
     "rxjs": "^6.5.2",
     "tsickle": "^0.35.0",

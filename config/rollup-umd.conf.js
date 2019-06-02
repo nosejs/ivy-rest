@@ -1,9 +1,9 @@
 import external from "./externals";
 
 export default {
-  input: 'tmp/esm5/ngx-restangular.js',
+  input: 'tmp/esm5/ivy-rest.js',
   output: {
-    file: 'dist/bundles/ngx-restangular.umd.js',
+    file: 'dist/bundles/ivy-rest.umd.js',
     format: 'umd',
     name: 'ngxRestangular',
     globals: {

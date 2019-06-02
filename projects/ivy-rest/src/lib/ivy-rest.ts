@@ -25,9 +25,9 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { RESTANGULAR } from './ngx-restangular.config';
-import { RestangularHttp } from './ngx-restangular-http';
-import { RestangularConfigurer } from './ngx-restangular-config.factory';
+import { RESTANGULAR } from './ivy-rest.config';
+import { RestangularHttp } from './ivy-rest-http';
+import { RestangularConfigurer } from './ivy-rest-config.factory';
 
 @Injectable()
 export class Restangular {

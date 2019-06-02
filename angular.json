@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-restangular-demo": {
+    "ivy-rest-demo": {
       "root": "demo",
       "sourceRoot": "demo",
       "projectType": "application",
@@ -16,13 +16,8 @@
             "main": "demo/main.ts",
             "tsConfig": "demo/tsconfig.app.json",
             "polyfills": "demo/polyfills.ts",
-            "assets": [
-              "demo/assets",
-              "demo/favicon.ico"
-            ],
-            "styles": [
-              "demo/styles.css"
-            ],
+            "assets": ["demo/assets", "demo/favicon.ico"],
+            "styles": ["demo/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -48,69 +43,60 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-restangular-demo:build"
+            "browserTarget": "ivy-rest-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-restangular-demo:build:production"
+              "browserTarget": "ivy-rest-demo:build:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "demo/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["demo/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "ngx-restangular": {
-      "root": "projects/ngx-restangular",
-      "sourceRoot": "projects/ngx-restangular/src",
+    "ivy-rest": {
+      "root": "projects/ivy-rest",
+      "sourceRoot": "projects/ivy-rest/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-restangular/tsconfig.lib.json",
-            "project": "projects/ngx-restangular/ng-package.json"
+            "tsConfig": "projects/ivy-rest/tsconfig.lib.json",
+            "project": "projects/ivy-rest/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-restangular/ng-package.prod.json"
+              "project": "projects/ivy-rest/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-restangular/src/test.ts",
-            "tsConfig": "projects/ngx-restangular/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-restangular/karma.conf.js"
+            "main": "projects/ivy-rest/src/test.ts",
+            "tsConfig": "projects/ivy-rest/tsconfig.spec.json",
+            "karmaConfig": "projects/ivy-rest/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-restangular/tsconfig.lib.json",
-              "projects/ngx-restangular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["projects/ivy-rest/tsconfig.lib.json", "projects/ivy-rest/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-restangular-demo",
+  "defaultProject": "ivy-rest-demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

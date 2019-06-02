@@ -17,7 +17,7 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "ngx-restangular.js",
-    "flatModuleId": "ngx-restangular"
+    "flatModuleOutFile": "ivy-rest.js",
+    "flatModuleId": "ivy-rest"
   }
 }

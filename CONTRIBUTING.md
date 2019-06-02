@@ -24,7 +24,7 @@ npm start
 
 * Please rebase your branch against the current master
 * Run ```npm install``` to make sure your development dependencies are up-to-date
-* Make reference to possible [issues](https://github.com/2muchcoffeecom/ngx-restangular/issues) on PR comment
+* Make reference to possible [issues](https://github.com/2muchcoffeecom/ivy-rest/issues) on PR comment
 
 ## Submitting bug reports
 

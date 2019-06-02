@@ -3,7 +3,7 @@ import { HttpBackend, HttpErrorResponse, HttpRequest, HttpResponse, HttpEvent } 
 
 import { throwError, Observable } from 'rxjs';
 
-import { RestangularHelper } from './ngx-restangular-helper';
+import { RestangularHelper } from './ivy-rest-helper';
 import { catchError, filter, map } from 'rxjs/operators';
 
 @Injectable()

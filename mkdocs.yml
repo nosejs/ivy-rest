@@ -1,7 +1,7 @@
-site_name: Ngx-restangular Docs
-site_url: https://nosejs.github.io/ngx-restangular/
-repo_url: https://github.com/nosejs/ngx-restangular
-edit_uri: https://github.com/nosejs/ngx-restangular.git
+site_name: ivy-rest Docs
+site_url: https://nosejs.github.io/ivy-rest/
+repo_url: https://github.com/nosejs/ivy-rest
+edit_uri: https://github.com/nosejs/ivy-rest.git
 
 theme:
   name: material
