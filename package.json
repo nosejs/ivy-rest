@@ -1,6 +1,6 @@
 {
   "name": "ivy-rest",
-  "version": "8.0.1",
+  "version": "8.0.3",
   "scripts": {
     "start": "ng serve",
     "build:ivy-rest": "ng build ivy-rest"

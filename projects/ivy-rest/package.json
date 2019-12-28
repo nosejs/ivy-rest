@@ -1,6 +1,6 @@
 {
   "name": "ivy-rest",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "description": "ivy-rest",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "@angular/core": "^8.0",
     "@angular/common": "^8.0",
     "@angular/platform-browser": "^8.0",
-    "core-js": "^2.5.4",
+    "core-js": "^3.1.3",
     "rxjs": "^6.0"
   },
   "dependencies": {
